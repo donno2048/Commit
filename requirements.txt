@@ -1,0 +1,2 @@
+gitpython
+gitdb2==3.0.1
