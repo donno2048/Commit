@@ -3,11 +3,10 @@ from datetime import date, datetime, time, timedelta
 from os import environ, getcwd, system
 from os.path import join
 from random import randint
-from uuid import uuid1
 def create(days, file_name, code, commit_message, final_message, empty_repo_url):
     repo, file_path = git.Repo.init(getcwd()), join(getcwd(), file_name)
     for commit_date in [datetime.combine(d, time(hour=randint(0, 23), minute=randint(0, 59), second=randint(0, 59), microsecond=randint(0, 999999))) for d in dates(days)]:
-        open(file_path, "w").write(str(uuid1()))
+        open(file_path, "w").write(str(__import__('uuid').uuid1()))
         repo.index.add([file_path])
         environ["GIT_AUTHOR_DATE"] = environ["GIT_COMMITTER_DATE"] = commit_date.strftime("%Y-%m-%d %H:%M:%S")
         repo.index.commit(commit_message)
