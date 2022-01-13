@@ -1,2 +1,2 @@
-gitpython==3.1.16
-gitdb2==3.0.1
+gitpython>=3.1.16
+gitdb2>=3.0.1
